@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :set_user,only: [:show,:edit,:update]
-    before_action :authenticate_user!, only: [:show]
+    before_action :authenticate_user!
 
 
     def index
@@ -31,6 +31,7 @@ class UsersController < ApplicationController
     def destroy 
         user = User.find(params[:id])
         user.destroy
+        redirect_to root_url
     end
 
     def update
