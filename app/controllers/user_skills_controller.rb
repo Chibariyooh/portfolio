@@ -1,0 +1,2 @@
+class User_skillsController < ApplicationController
+end

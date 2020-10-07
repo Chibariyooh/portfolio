@@ -1,0 +1,15 @@
+<h1>Users#index</h1>
+<p>Find me in app/views/users/index.html.erb</p>
+<% @user.each do |user| %>
+    <hr>
+    <p><span>名前： </span><%= user.name %></p>
+    <p><span>年齢：</span><%= user.age %></p>
+    <p><span>挨拶：</span><%= user.description %></p>
+    
+    <% user.skills.each do |skill| %>
+    <p><%= skill[:skill_name] %></p>
+    <!--<p><%= skill[:skill_level] %></p>-->
+    <% end %>
+    <%= link_to "編集", edit_user_path(user) %>
+    <%= link_to "削除", user_path(user), method: :delete, data: {confirm: "削除しますか?"} %>
+<% end %>
