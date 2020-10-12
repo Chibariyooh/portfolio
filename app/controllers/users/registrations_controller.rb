@@ -6,7 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
   def after_sign_up_path_for(resource)
-    mypage_path
+    new_user_path
   end
   # GET /resource/sign_up
   # def new

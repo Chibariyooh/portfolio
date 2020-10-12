@@ -16,12 +16,12 @@
         <%= f.text_field :description %>
     </p>
 
-    <div class="check_box" >
-        <%= f.collection_check_boxes(:skill_ids, Skill.all, :id, :skill_name) do |b| %>
-            <%= b.label { b.check_box + b.text } %>
-
-            
-            <br>
+    <div class="check_box2">
+        <%= f.fields_for :skill do |s| %>
+            <%= s.label :skill_name %>
+        <% end %>   
+        <%= f.fields_for :user_skills do |us| %>
+            <%= us.text_field :skill_level %>%
         <% end %>
     </div>
     <p><%= link_to "タグの追加",new_skill_path %></p>
