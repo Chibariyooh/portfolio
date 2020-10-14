@@ -2,6 +2,9 @@ class SkillsController < ApplicationController
 
     def index
         @skill= Skill.all
+        Skill.all.each do |skill|
+            @user.user_skills.build(skill_id: skill.id)
+        end
     end
     
     def new 

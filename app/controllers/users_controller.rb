@@ -5,6 +5,9 @@ class UsersController < ApplicationController
 
     def index
         @user = User.all 
+        Skill.all.each do |skill|
+            @user.user_skills.build(skill_id: skill.id)
+        end
     end
 
     def new
@@ -26,6 +29,7 @@ class UsersController < ApplicationController
         unless @user == current_user
         redirect_to user_path(@user)
         end
+        @skill = Skill.all
     end
 
     def destroy 
