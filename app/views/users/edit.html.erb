@@ -27,12 +27,14 @@
     <div class="check_box3">
         <% @skill.each do |fs| %>
             <%= fs.skill_name %>:
-            
-            <br>
-        <% end %> 
         <%= f.fields_for :user_skill do |ff| %>
             <%= ff.text_field :skill_level %>%
         <% end %>
+            <br>
+        <% end %> 
+        <%# f.fields_for :user_skill do |ff| %>
+            <%# ff.text_field :skill_level %>
+        <%# end %>
     </div>
     <p><%= link_to "タグの追加",new_skill_path %></p>
     <%= f.submit %>
