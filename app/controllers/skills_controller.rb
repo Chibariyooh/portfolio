@@ -1,7 +1,8 @@
 class SkillsController < ApplicationController 
 
     def index
-        @skill= Skill.all
+        @skills= Skill.all
+        @skill= Skill.new
         Skill.all.each do |skill|
             @user.user_skills.build(skill_id: skill.id)
         end
@@ -11,8 +12,15 @@ class SkillsController < ApplicationController
         @skill = Skill.new
     end
 
+    def show
+        @skill=Skill.find(params[:id])
+        @user_skill = UserSkill.new
+    end
+
+
     def create
-        Skill.create!(skill_parmas)
+        @skill = Skill.create!(skill_parmas)
+        @skill.user_id = current_user.id
     end
 
     private

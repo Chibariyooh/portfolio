@@ -7,9 +7,10 @@
     <p><span>挨拶：</span><%= user.description %></p>
     
     <% user.skills.each do |skill| %>
-    <p><%= skill[:skill_name] %>:
-        <% user.user_skills.each do |fs| %>
-        <%= fs[:skill_level] %>%
+    <p> <%= skill[:skill_name] %>:
+        <%= skill[:skill_level] %>
+        <%= user.user_skills.each do |fs| %>
+        <%# fs[:skill_level] %>
         <% end %>
     </p>
     <!--<p><%= skill[:skill_level] %></p>-->

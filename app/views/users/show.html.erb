@@ -7,7 +7,8 @@
     <p><span>年齢：</span><%= @user.age %></p>
     <p><span>挨拶：</span><%= @user.description %></p>
     <% @user.skills.each do |skill| %>
-    <p><%= skill[:skill_name] %></p>
+    <p><%= skill[:skill_name] %>:<%= skill.user_skills.find(:id) %></p>
+
     <!--<p><%= skill[:skill_level] %></p>-->
     <% end %>
     <%=link_to "プロフィール情報編集", edit_user_path(current_user) %>

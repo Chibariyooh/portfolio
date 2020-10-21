@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
     def index
         @user = User.all 
+        @skill = Skill.all
     end
 
     def new
@@ -18,7 +19,8 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
-        #@skills = user.skill.all
+        @users = User.all
+        @skill = @users.user_skills.find(skill_id: params[:skill_id])
     end
 
     def edit

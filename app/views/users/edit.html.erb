@@ -32,9 +32,20 @@
         <% end %>
             <br>
         <% end %> 
-        <%# f.fields_for :user_skill do |ff| %>
-            <%# ff.text_field :skill_level %>
-        <%# end %>
+        <%= f.fields_for :user_skill do |ff| %>
+            <% ff.text_field :skill_level %>
+        <% end %>
+    </div>
+    <div class="check_box4" >
+        <%= f.collection_check_boxes(:skill_ids, Skill.all, :id, :skill_name) do |b| %>
+            <%= b.label { b.check_box + b.text } %>
+
+            <%# !--skill_levelの表示方法が不明 %>
+            <%# form_for @user_skill do |d| %>
+            <%# end %>
+
+            <br>
+        <% end %>
     </div>
     <p><%= link_to "タグの追加",new_skill_path %></p>
     <%= f.submit %>
